@@ -1,0 +1,46 @@
+# Valetudo RE Mapper (Home Assistant Supervisor Addon)
+
+This is the adaption of [valetudo-mapper](https://github.com/rand256/valetudo-mapper) as a Supervisor addon.
+
+[![Release][release-badge]][release]
+![Addon Stage][stage-badge]
+
+[![Donate][donation-badge]][donation-url]
+
+## Config
+
+The config of the addon is identical to the `mqtt` section described in the README of Valetudo Mapper.
+The `webserver` section is fixed to `{ "enabled": true, "port": 3000 }`
+
+If you use the Mosquitto Addon in Home Assistant `core-mosquitto` can be used as broker address like this: `mqtt://<user>:<password>@core-mosquitto`.
+
+## PNG image
+
+The generated image will be served over the Supervisor Ingress feature. So the floor plan can be accessed via the build-in side panel or the auto-configured mqtt camera.
+
+{% if channel == "edge" %}
+## ⚠ WARNING! THIS IS AN EDGE VERSION!
+
+This Home Assistant Add-on is and bloody edge build.
+Edge builds add-ons are based upon the latest development version.
+
+- They may not work at all.
+- They might stop working at any time.
+- They could have a negative impact on your system.
+
+If you are more interested in stable releases of our add-ons:
+
+For the stable version of the add-ons: [Stable-Repository]
+{% endif %}
+
+[stage-badge]: https://img.shields.io/badge/Addon%20stage-stable-green.svg
+
+[release-badge]: https://img.shields.io/badge/version-{{ version }}-blue.svg
+[release]: {{ repo }}/tree/{{ version }}
+
+[donation-badge]: https://img.shields.io/badge/Buy%20me%20a%20coffee-%23d32f2f?logo=buy-me-a-coffee&style=for-the-badge&logoColor=white
+[donation-url]: https://www.buymeacoffee.com/Poeschl
+
+{% if channel == "edge" %}
+[Stable-Repository]: https://github.com/Poeschl-HomeAssistant-Addons/repository
+{% endif %}
